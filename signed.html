@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>签到管理</title>
+    <link rel="stylesheet" href="./css/weui.css">
+    <link rel="stylesheet" type="text/css" href="./css/region.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+     <!--组件依赖js begin-->
+    <script src="./js/jquery-1.7.1.min.js"></script>
+    <script src="./js/public.js"></script>
+    <script src="./js/laytpl.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <div class="header_div">
+            <div id="left_div" onclick="window.location.href=&#39;./sign_in.html&#39;"></div>
+            <div id="middle_div">
+                <h1 id="title">签到列表</h1></div>
+            <div id="right_div">
+                <div class="right_bottom"></div>
+                <div class="right_img"></div>
+            </div>
+        </div>
+    </header>
+    <div class="cont">
+        <div class="tab_title">
+            
+             <a href="./all_members.html" >全部人员</a>
+            <a href="./signed.html" class="active">已签到</a>
+            <a href="./unsigned.html">未签到</a>
+        </div>
+        <div class="ui-refresh" id="repair">
+            <div class="weui_cells weui_cells_access" id="data-list">
+
+                              <a class="weui_cell" href="">             
+                              	<div class="weui_cell_bd weui_cell_primary">                 
+                              	<p class="s p1">已签到</p>                 
+                              	<p style="font-size:12px;line-height:20px;">&nbsp;&nbsp;张三</p>                 
+                              	<p style="font-size:12px;color: #a9a9a9;clear:both;margin-top:5px;">签到日期：2016-12-06 21:48</p>             
+                              	</div>             
+                              	<div class="weui_cell_ft">             
+                              	</div>         
+                              </a>                  
+                              <a class="weui_cell" href="">             
+                              	<div class="weui_cell_bd weui_cell_primary">                 
+                              		<p class="s p1">已签到</p>                 
+                              		<p style="font-size:12px;line-height:20px;">&nbsp;&nbsp;李四</p>                 
+                              		<p style="font-size:12px;color: #a9a9a9;clear:both;margin-top:5px;">签到日期：2016-11-07 14:19</p>             
+                              	</div>             
+                              		<div class="weui_cell_ft">             
+                              		</div>         
+                              </a>                  
+                              		<a class="weui_cell" href="">             
+                              			<div class="weui_cell_bd weui_cell_primary">                 
+                              				<p class="s p1">已签到</p>                 
+                              				<p style="font-size:12px;line-height:20px;">&nbsp;&nbsp;王五</p>                 
+                              				<p style="font-size:12px;color: #a9a9a9;clear:both;margin-top:5px;">签到日期：2016-09-23 21:43</p>             
+                              			</div>             
+                              	<div class="weui_cell_ft">             
+                              	</div>         
+                              		</a>                  
+                              	<a class="weui_cell" href="">             
+                              		<div class="weui_cell_bd weui_cell_primary">                 
+                              			<p class="s p1">已签到</p>                 
+                              			<p style="font-size:12px;line-height:20px;">&nbsp;&nbsp;赵六</p>                 
+                              			<p style="font-size:12px;color: #a9a9a9;clear:both;margin-top:5px;">签到日期：2016-09-23 20:46</p>             
+                              		</div>             
+                              		<div class="weui_cell_ft">             
+                              			</div>         
+                              	</a>               
+            </div>
+        </div>
+    </div>
+    <script type="text/html" id="xq_list">
+        {{# for(var i = 0, len = d.list.length; i < len; i++){ }}
+        <a class="weui_cell" href="{{ d.list[i].url}}">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p  class="s {{ d.list[i].css}}" >{{ d.list[i].s}}</p>
+                <p style="font-size:12px;line-height:20px;">&nbsp;&nbsp;{{ d.list[i].category}}</p>
+                <p style="font-size:12px;color: #a9a9a9;clear:both;margin-top:5px;">签到日期：{{ d.list[i].datetime}}</p>
+            </div>
+            <div class="weui_cell_ft">
+            </div>
+        </a>
+        {{# } }}
+
+    </script>
+   
+<script>
+function a1() {
+    window.location.href = "./index.php?i=3&c=entry&do=home&m=xfeng_community";
+}
+
+function a2() {
+    window.location.href = "./index.php?i=3&c=entry&op=list&do=announcement&m=xfeng_community";
+}
+
+function a4() {
+    window.location.href = "./index.php?i=3&c=entry&do=member&m=xfeng_community";
+}
+
+function select(s) {
+    if (s == 'a1') {
+        //$(".a1 .thumb").addClass("cur");
+        $(".a1 .thumb").css("background-position", "-67px 10px");
+        $(".a1 p").css("color", "#48b54e")
+    } else if (s == 'a2') {
+        // $(".a2").addClass("cur");
+        $(".a2 .thumb").css("background-position", "-67px -50px");
+        $(".a2 p").css("color", "#48b54e")
+    } else if (s == 'a3') {
+
+    } else {
+        // $(".a4").addClass("cur");
+        $(".a4 .thumb").css("background-position", "-67px -175px");
+        $(".a4 p").css("color", "#48b54e")
+    }
+
+}
+
+</script>
+    <!--右边点击菜单
+        <div id="btn_div">
+        <div id="btn_dj"><span id="btn_input" class="btn_img hide_bz"></span></div>
+        <div id="menu_b" class="menu_btn hide_m">
+        	<a href="tel:13333333333">电话建议</a>
+        	<a href="./online_suggest.html">在线建议</a>
+        	<a href="./my_suggest.html">我的建议</a></div>
+        </div>
+    -->
+    <script>
+    $(function() {
+        $("#btn_dj").click(function() {
+            var input_btn = $("#btn_input")
+            if (input_btn.attr("class") == "btn_img hide_b") {
+                input_btn.removeClass();
+                input_btn.addClass("btn_img show_b");
+            } else {
+                input_btn.removeClass();
+                input_btn.addClass("btn_img hide_b");
+            }
+            var menu_b = $("#menu_b")
+            if (menu_b.attr("class") == "menu_btn hide_m") {
+                menu_b.removeClass();
+                menu_b.addClass("menu_btn show_m");
+            } else {
+                menu_b.removeClass();
+                menu_b.addClass("menu_btn hide_m");
+            }
+        })
+    })
+    </script>
+     <script>
+         $(document).ready(function() {
+             var status ="1";
+             loaddata("./index.php?i=3&c=entry&op=list&do=report&m=xfeng_community&status="+status, $("#data-list"),'xq_list', true);
+         });
+    </script>
+    <script>
+    $(function() {
+        select('a1');
+    });
+    </script>
+<script>var imgs = document.getElementsByTagName('img');for(var i=0, len=imgs.length; i < len; i++){imgs[i].onerror = function() {if (!this.getAttribute('check-src') && (this.src.indexOf('http://') > -1 || this.src.indexOf('https://') > -1)) {this.src = this.src.indexOf('http://weixiaoqu.wang/attachment/') == -1 ? this.src.replace('http://o7lzmscvb.bkt.clouddn.com/', 'http://weixiaoqu.wang/attachment/') : this.src.replace('http://weixiaoqu.wang/attachment/', 'http://o7lzmscvb.bkt.clouddn.com/');this.setAttribute('check-src', true);}}}</script>
+
+
+</body></html>
